@@ -1,14 +1,32 @@
 package com.application.iGate.model;
 
 public enum Status {
+
+	SUCCESS("200", "Success"),
+	DB_EXCEPTION("100", "DB Exception"),
+	FAILURE("500", "Failure");
 	
-	SUCCESS (200),
-	DB_EXCEPTION(110),
-	FAILURE (302);
+	String code;
+	String msg;
 	
-	private final int responseCode;
+	Status(String code, String msg) {
+		this.code = code;
+		this.msg = msg;
+	}
 	
-	private Status(int responseCode) {
-		this.responseCode = responseCode;
+	public String getCode() {
+		return code;
+	}
+	
+	public String getMsg() {
+		return msg;
+	}
+	
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }
