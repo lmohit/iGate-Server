@@ -2,6 +2,7 @@ package com.application.iGate.model;
 
 import java.sql.Blob;
 import java.sql.Timestamp;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +17,24 @@ public class Visitor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "visitor_id")
-	private int visitorId;
+	private UUID visitorId;
 	
+	public Visitor() {}
+	
+	
+	public Visitor(Blob visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
+			String visitorAddress, String meetingFlatNo, Timestamp visitingTime) {
+		super();
+		this.visitorId = UUID.randomUUID();
+		this.visitorPhoto = visitorPhoto;
+		this.visitorName = visitorName;
+		this.visitorEmailId = visitorEmailId;
+		this.visitorPurpose = visitorPurpose;
+		this.visitorAddress = visitorAddress;
+		this.meetingFlatNo = meetingFlatNo;
+		this.visitingTime = visitingTime;
+	}
+
 	@Lob
 	@Column(name = "photo")
 	private Blob visitorPhoto;
