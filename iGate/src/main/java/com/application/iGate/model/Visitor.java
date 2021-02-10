@@ -14,13 +14,7 @@ import javax.persistence.Lob;
 @Entity
 public class Visitor {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "visitor_id")
-	private UUID visitorId;
-	
 	public Visitor() {}
-	
 	
 	public Visitor(Blob visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
 			String visitorAddress, String meetingFlatNo, Timestamp visitingTime) {
@@ -34,10 +28,18 @@ public class Visitor {
 		this.meetingFlatNo = meetingFlatNo;
 		this.visitingTime = visitingTime;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "visitor_id")
+	private UUID visitorId;
 
 	@Lob
 	@Column(name = "photo")
 	private Blob visitorPhoto;
+	
+	@Column(name = "phone_number")
+	private String phoneNumber;
 	
 	@Column(name = "name")
 	private String visitorName;
