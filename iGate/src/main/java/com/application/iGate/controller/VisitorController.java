@@ -26,7 +26,6 @@ public class VisitorController {
 			if (visitor == null) {
 				return ResponseWrapper.getFailureResponse("Visitor is Null", 500);
 			}
-			System.out.println(visitor);
 			UUID uuid = UUID.randomUUID();
 			visitor.setVisitorId(uuid.toString());
 			mVisitorService.addVisitor(visitor);
