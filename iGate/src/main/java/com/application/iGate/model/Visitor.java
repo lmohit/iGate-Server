@@ -18,8 +18,8 @@ public class Visitor {
 	
 	public Visitor() {}
 	
-	public Visitor(Blob visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
-			String visitorAddress, String meetingFlatNo, Timestamp visitingTime) {
+	public Visitor(byte[] visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
+			String visitorAddress, String meetingFlatNo, String visitingTime) {
 		super();
 		this.visitorPhoto = visitorPhoto;
 		this.visitorName = visitorName;
@@ -57,7 +57,7 @@ public class Visitor {
 	private String meetingFlatNo;
 	
 	@Column(name = "visiting_time")
-	private Timestamp visitingTime;
+	private String visitingTime;
 	
 	public byte[] getVisitorPhoto() {
 		return visitorPhoto;
@@ -115,11 +115,11 @@ public class Visitor {
 		this.meetingFlatNo = meetingFlatNo;
 	}
 
-	public Timestamp getVisitingTime() {
+	public String getVisitingTime() {
 		return visitingTime;
 	}
 
-	public void setVisitingTime(Timestamp visitingTime) {
+	public void setVisitingTime(String visitingTime) {
 		this.visitingTime = visitingTime;
 	}
 

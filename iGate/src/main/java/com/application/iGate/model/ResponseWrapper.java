@@ -6,15 +6,18 @@ public class ResponseWrapper<T> implements Serializable {
 	
 	private T result;
 	
-	private Status status;
+	private String msg;
 	
-	private static ResponseWrapper<String> successResponse = new ResponseWrapper<String>("Operation Successfully Performed", Status.SUCCESS);
-	private static ResponseWrapper<String> failureResponse = new ResponseWrapper<String>("Operation Failed", Status.FAILURE);
+	private int code;
 	
-	public ResponseWrapper(T result, Status status) {
+	private static ResponseWrapper<String> successResponse = new ResponseWrapper(null, "Operation Successfully Performed", 200);
+	private static ResponseWrapper<String> failureResponse = new ResponseWrapper<String>(null, "Operation Failure", 110);
+	
+	public ResponseWrapper(T result, String msg, int code) {
 		super();
 		this.result = result;
-		this.status = status;
+		this.msg = msg;
+		this.code = code;
 	}
 	
 	public ResponseWrapper() {}
@@ -23,9 +26,9 @@ public class ResponseWrapper<T> implements Serializable {
 		return successResponse;
 	}
 	
-	public static <T> ResponseWrapper<String> getFailureResponse(String message, Status status) {
-		failureResponse.setResult(message);
-		failureResponse.setStatus(status);
+	public static <T> ResponseWrapper<String> getFailureResponse(String message, int code) {
+		failureResponse.setMsg(message);
+		failureResponse.setCode(code);
 		return failureResponse;
 	}
 
@@ -36,13 +39,21 @@ public class ResponseWrapper<T> implements Serializable {
 	public void setResult(T result) {
 		this.result = result;
 	}
-
-	public Status getStatus() {
-		return status;
+	
+	public void setCode(int code) {
+		this.code = code;
 	}
-
-	public void setStatus(Status status) {
-		this.status = status;
+	
+	public int getCode() {
+		return code;
+	}
+	
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+	public String getMsg() {
+		return msg;
 	}
 
 	public static ResponseWrapper<String> getFailureResponse() {

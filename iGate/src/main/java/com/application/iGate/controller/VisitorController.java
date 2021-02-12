@@ -24,7 +24,7 @@ public class VisitorController {
 	private ResponseWrapper<String> saveVisitor(@RequestBody Visitor visitor) {
 		try {
 			if (visitor == null) {
-				return ResponseWrapper.getFailureResponse("Visitor is Null", Status.FAILURE);
+				return ResponseWrapper.getFailureResponse("Visitor is Null", 500);
 			}
 			System.out.println(visitor);
 			UUID uuid = UUID.randomUUID();
@@ -32,7 +32,7 @@ public class VisitorController {
 			mVisitorService.addVisitor(visitor);
 			return ResponseWrapper.getSuccessResponse();
 		} catch (Exception e) {
-			return ResponseWrapper.getFailureResponse("Error : " + e.getMessage(), Status.DB_EXCEPTION);
+			return ResponseWrapper.getFailureResponse("Error : " + e.getMessage(), 110);
 		}
 	}
 
