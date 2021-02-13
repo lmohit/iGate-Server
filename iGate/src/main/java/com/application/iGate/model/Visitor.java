@@ -36,7 +36,7 @@ public class Visitor {
 
 	@Lob
 	@Column(name = "photo")
-	private byte[] visitorPhoto;
+	private byte[] visitorPhoto = null;
 	
 	@Column(name = "phone_number")
 	private String phoneNumber;
