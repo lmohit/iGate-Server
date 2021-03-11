@@ -18,4 +18,4 @@ CREATE TABLE visitors
 
 ALTER TABLE visitors ADD COLUMN phone_number varchar(14);
 
-ALTER TABLE visitors CHANGE ID visitor_id varchar(50);
+ALTER TABLE visitors MODIFY photo varchar(100);

@@ -18,7 +18,7 @@ public class Visitor {
 	
 	public Visitor() {}
 	
-	public Visitor(byte[] visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
+	public Visitor(String visitorPhoto, String visitorName, String visitorEmailId, String visitorPurpose,
 			String visitorAddress, String meetingFlatNo, String visitingTime) {
 		super();
 		this.visitorPhoto = visitorPhoto;
@@ -34,9 +34,8 @@ public class Visitor {
 	@Column(name = "visitor_id")
 	private String visitorId;
 
-	@Lob
 	@Column(name = "photo")
-	private byte[] visitorPhoto = null;
+	private String visitorPhoto = null;
 	
 	@Column(name = "phone_number")
 	private String phoneNumber;
@@ -59,11 +58,11 @@ public class Visitor {
 	@Column(name = "visiting_time")
 	private String visitingTime;
 	
-	public byte[] getVisitorPhoto() {
+	public String getVisitorPhoto() {
 		return visitorPhoto;
 	}
 
-	public void setVisitorPhoto(byte[] visitorPhoto) {
+	public void setVisitorPhoto(String visitorPhoto) {
 		this.visitorPhoto = visitorPhoto;
 	}
 
